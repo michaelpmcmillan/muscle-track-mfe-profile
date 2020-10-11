@@ -8,6 +8,14 @@ Micro frontend to capture profile data. This is to be used with the main [contai
 yarn start:dev
 ```
 
+## Notes
+
+- Uses react-helmet to inject html headers, such as css cdn links. This keeps the micro-front-end self contained.
+- Uses react-bootstrap and the bootstrap cdn.
+- Uses formik to handle form data
+- Uses yup to handle form validation
+- Uses styled-components for easily packagable mfe css
+
 ## How was this app started?
 
 ```bash
