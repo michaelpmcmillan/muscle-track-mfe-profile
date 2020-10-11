@@ -1,0 +1,7 @@
+[build]
+  command = "yarn build"
+  publish = "dist"
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "https://muscle-track.netlify.app"
