@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Helmet from "react-helmet";
 import { Formik } from "formik";
 import { ValidationSchema } from "./validation";
 import { FORM, BUTTON, FORM_GROUP } from "./styles";
+import getProfile from "./services/get-profile-service";
 
 export default function Root(props) {
+  const [profile, setProfile] = useState({ height: 0, dateOfBirth: "" });
+
+  useEffect(() => {
+    getProfile().then((profile) => setProfile(profile));
+  }, []);
+
   return (
     <Formik
-      initialValues={{ height: "", dateOfBirth: "" }}
+      initialValues={profile}
       validationSchema={ValidationSchema}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {

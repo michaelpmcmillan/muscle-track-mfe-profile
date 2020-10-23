@@ -15,6 +15,7 @@ yarn start:dev
 - Uses formik to handle form data
 - Uses yup to handle form validation
 - Uses styled-components for easily packagable mfe css
+- Uses axios to call micro-services
 
 ## How was this app started?
 
@@ -28,3 +29,7 @@ y (typescript)
 n (beta layouts)
 michaelpmcmillan
 ```
+
+## See
+
+- https://github.com/netlify/create-react-app-lambda
