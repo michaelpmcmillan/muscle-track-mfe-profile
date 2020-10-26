@@ -1,8 +1,13 @@
 [build]
   command = "yarn build"
   publish = "dist"
+
 [[headers]]
   for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "https://muscle-track.netlify.app"
-    
+
+[dev]
+  framework = "#custom"
+  command = "yarn run start:dev"
+  targetPort = 9006
