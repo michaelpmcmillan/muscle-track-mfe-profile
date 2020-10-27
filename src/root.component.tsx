@@ -7,7 +7,7 @@ import { FORM, BUTTON, FORM_GROUP } from "./styles";
 import getProfile from "./services/get-profile-service";
 
 export default function Root(props) {
-  const [profile, setProfile] = useState({ height: 0, dateOfBirth: "" });
+  const [profile, setProfile] = useState({ dateOfBirth: "" });
 
   useEffect(() => {
     getProfile().then((profile) => setProfile(profile));
@@ -43,25 +43,6 @@ export default function Root(props) {
               crossOrigin="anonymous"
             ></link>
           </Helmet>
-
-          <FORM_GROUP>
-            <Form.Label>Height (cm)</Form.Label>
-            <Form.Control
-              name="height"
-              type="text"
-              placeholder=""
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.height}
-              className={touched.height && errors.height ? "error" : null}
-            />
-            <Form.Text className="text-muted">
-              Make sure you're standing up straight!
-            </Form.Text>
-            {touched.height && errors.height ? (
-              <div className="error-message">{errors.height}</div>
-            ) : null}
-          </FORM_GROUP>
 
           <FORM_GROUP>
             <Form.Label>Date of Birth</Form.Label>
