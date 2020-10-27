@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export default async function getProfile(): Promise<Profile> {
-  console.log(process.env.REACT_APP_GET);
+  console.log(process.env.PROFILE_GET);
   return await axios
-    .get(`${process.env.REACT_APP_GET}/get-profile`)
+    .get(`${process.env.PROFILE_GET}/get-profile`)
     .then((response) => {
       return {
         height: response.data.height,

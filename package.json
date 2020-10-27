@@ -1,7 +1,8 @@
 {
   "name": "@michaelpmcmillan/muscle-track-mfe-profile",
   "scripts": {
-    "start:dev": "webpack-dev-server --mode=development --port 9006 --env.isLocal=true",
+    "start:dev": "webpack-dev-server --port 9006 --env dev --https",
+    "start:prod": "webpack-dev-server --port 9006 --https",
     "build": "webpack --mode=production",
     "analyze": "webpack --mode=production --env.analyze=true",
     "lint": "eslint src --ext js,ts,tsx",

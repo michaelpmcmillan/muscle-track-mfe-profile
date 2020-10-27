@@ -1,16 +1,27 @@
+const webpack = require("webpack");
 const webpackMerge = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
 const Dotenv = require("dotenv-webpack");
 
-module.exports = (webpackConfigEnv) => {
+module.exports = (env) => {
   const defaultConfig = singleSpaDefaults({
     orgName: "michaelpmcmillan",
     projectName: "muscle-track-mfe-profile",
-    webpackConfigEnv,
+    env,
   });
 
-  return webpackMerge.smart(defaultConfig, {
-    // modify the webpack config however you'd like to by adding to this object
-    plugins: [new Dotenv()],
-  });
+  if (env === "dev") {
+    return webpackMerge.smart(defaultConfig, {
+      plugins: [new Dotenv()],
+    });
+  } else {
+    return webpackMerge.smart(defaultConfig, {
+      plugins: [
+        new webpack.EnvironmentPlugin({
+          PROFILE_GET:
+            "https://muscle-track-ms-profile.netlify.app/.netlify/functions",
+        }),
+      ],
+    });
+  }
 };
